@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html,
+body {
+  background-color: #fdfaf3;
+  color: #2a2a2a;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}
+
+/* Subtle paper texture */
+.paper-bg {
+  background-image:
+    radial-gradient(rgba(199, 158, 74, 0.05) 1px, transparent 1px),
+    radial-gradient(rgba(63, 107, 70, 0.04) 1px, transparent 1px);
+  background-size: 22px 22px, 36px 36px;
+  background-position: 0 0, 11px 18px;
+}
+
+/* Print-friendly: parents may want to print the agenda */
+@media print {
+  .no-print { display: none !important; }
+  body { background: white; }
+  section { break-inside: avoid; }
+}
