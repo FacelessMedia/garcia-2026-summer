@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ChicagoStar } from "@/components/ChicagoStar";
 
 const links = [
   { href: "#why-christian", label: "Why Christian" },
@@ -10,20 +11,24 @@ const links = [
 
 export function Nav() {
   return (
-    <header className="sticky top-0 z-30 border-b border-forest-100 bg-cream-50/90 backdrop-blur no-print">
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
-        <Link href="#top" className="font-display text-base font-semibold text-ink-900">
+    <header className="sticky top-0 z-30 border-b border-chicago-mist bg-white/85 backdrop-blur no-print">
+      <nav className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-3">
+        <Link
+          href="#top"
+          className="flex items-center gap-2 font-display text-base font-semibold text-chicago-navy"
+        >
+          <ChicagoStar size={16} className="text-chicago-red" />
           Christian Garcia
-          <span className="ml-2 hidden text-sm font-normal text-ink-700/70 sm:inline">
+          <span className="ml-1 hidden text-sm font-normal text-chicago-slate sm:inline">
             · Summer 2026
           </span>
         </Link>
-        <ul className="hidden items-center gap-1 text-sm md:flex">
+        <ul className="hidden items-center gap-0.5 text-sm md:flex">
           {links.map((l) => (
             <li key={l.href}>
               <Link
                 href={l.href}
-                className="rounded-full px-3 py-1.5 text-ink-700 transition hover:bg-white hover:text-forest-700"
+                className="rounded-full px-3 py-1.5 text-chicago-stone transition hover:bg-chicago-mist hover:text-chicago-deep"
               >
                 {l.label}
               </Link>
@@ -32,7 +37,7 @@ export function Nav() {
         </ul>
         <Link
           href="#contact"
-          className="rounded-full bg-forest-600 px-4 py-2 text-sm font-semibold text-cream-50 transition hover:bg-forest-700"
+          className="rounded-full bg-chicago-red px-4 py-2 text-sm font-semibold text-white transition hover:bg-chicago-crimson"
         >
           Book a call
         </Link>

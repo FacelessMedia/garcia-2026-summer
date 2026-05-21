@@ -1,4 +1,5 @@
 import { Mail, Phone, Pencil, Calendar, MapPinned, Replace } from "lucide-react";
+import { ChicagoStar } from "@/components/ChicagoStar";
 
 const swaps = [
   {
@@ -25,17 +26,17 @@ const swaps = [
 
 export function Customize() {
   return (
-    <section id="customize" className="border-b border-forest-100 bg-gradient-to-b from-cream-50 to-white">
+    <section id="customize" className="relative border-b border-chicago-mist bg-white">
       <div className="mx-auto max-w-6xl px-6 py-20">
         <div className="grid gap-12 md:grid-cols-[1.1fr,1fr] md:items-start">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-wider text-sand-700">
-              This is a starting point
-            </p>
-            <h2 className="mt-2 font-display text-3xl font-semibold tracking-tight text-ink-900 md:text-4xl">
+            <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-chicago-red">
+              <ChicagoStar size={12} /> This is a starting point
+            </div>
+            <h2 className="mt-3 font-display text-4xl font-bold tracking-tight text-chicago-navy md:text-5xl">
               Built to be edited.
             </h2>
-            <p className="mt-4 text-pretty text-ink-700">
+            <p className="mt-4 text-pretty text-lg leading-relaxed text-chicago-stone">
               I don&apos;t expect you to take this exactly as written. The point of
               showing up with a real plan is to give us something concrete to
               react to. Strike anything you don&apos;t like — I&apos;ll have a revised
@@ -46,14 +47,14 @@ export function Customize() {
               {swaps.map((s) => (
                 <li
                   key={s.title}
-                  className="flex gap-4 rounded-xl border border-forest-100 bg-white p-4 shadow-soft"
+                  className="flex gap-4 rounded-xl border border-chicago-mist bg-chicago-paper p-4 shadow-soft transition hover:border-chicago-blue/40 hover:shadow-lift"
                 >
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-forest-600 text-cream-50">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-chicago-red text-white">
                     <s.Icon className="h-4 w-4" />
                   </div>
                   <div>
-                    <h3 className="font-medium text-ink-900">{s.title}</h3>
-                    <p className="mt-1 text-sm text-ink-700">{s.body}</p>
+                    <h3 className="font-display text-lg font-semibold text-chicago-navy">{s.title}</h3>
+                    <p className="mt-1 text-sm leading-relaxed text-chicago-stone">{s.body}</p>
                   </div>
                 </li>
               ))}
@@ -62,45 +63,55 @@ export function Customize() {
 
           <aside
             id="contact"
-            className="rounded-2xl border border-forest-200 bg-forest-700 p-8 text-cream-50 shadow-soft"
+            className="relative overflow-hidden rounded-2xl bg-chicago-navy p-8 text-white shadow-lift"
           >
-            <p className="text-xs font-semibold uppercase tracking-wider text-sand-300">
-              Next step
-            </p>
-            <h3 className="mt-2 font-display text-2xl font-semibold leading-snug">
-              A 20-minute call, then a tailored plan in your inbox.
-            </h3>
-            <p className="mt-3 text-sm leading-relaxed text-cream-100/90">
-              We&apos;ll talk about your kids, your weeks, and any non-negotiables.
-              I&apos;ll send a revised version of this agenda within 24 hours, with
-              a sample week locked in for trial.
-            </p>
+            {/* Chicago stars motif inside the card */}
+            <div className="pointer-events-none absolute -right-10 -top-10 text-chicago-red/25">
+              <ChicagoStar size={180} />
+            </div>
+            <div className="pointer-events-none absolute -bottom-12 -left-8 text-chicago-red/15">
+              <ChicagoStar size={140} />
+            </div>
 
-            <ul className="mt-6 space-y-3 text-sm">
-              <li className="flex items-center gap-3">
-                <Mail className="h-4 w-4 text-sand-300" />
-                <a
-                  href="mailto:hello@example.com"
-                  className="font-medium text-cream-50 underline-offset-4 hover:underline"
-                >
-                  christian@example.com
-                </a>
-              </li>
-              <li className="flex items-center gap-3">
-                <Phone className="h-4 w-4 text-sand-300" />
-                <a
-                  href="tel:+13125550123"
-                  className="font-medium text-cream-50 underline-offset-4 hover:underline"
-                >
-                  (312) 555-0123
-                </a>
-              </li>
-            </ul>
+            <div className="relative">
+              <div className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-wider text-chicago-sky">
+                <ChicagoStar size={11} className="text-chicago-red" /> Next step
+              </div>
+              <h3 className="mt-3 font-display text-3xl font-bold leading-tight">
+                A 20-minute call, then a tailored plan in your inbox.
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-white/85">
+                We&apos;ll talk about your kids, your weeks, and any non-negotiables.
+                I&apos;ll send a revised version of this agenda within 24 hours, with
+                a sample week locked in for trial.
+              </p>
 
-            <div className="mt-6 rounded-xl bg-forest-900/40 p-4 text-xs leading-relaxed text-cream-100/80">
-              <strong className="block text-cream-50">References on request.</strong>
-              Past families, two summer-camp counselors I&apos;ve worked with, and
-              a teacher reference are all available.
+              <ul className="mt-6 space-y-3 text-sm">
+                <li className="flex items-center gap-3">
+                  <Mail className="h-4 w-4 text-chicago-sky" />
+                  <a
+                    href="mailto:christian@example.com"
+                    className="font-medium text-white underline-offset-4 hover:underline"
+                  >
+                    christian@example.com
+                  </a>
+                </li>
+                <li className="flex items-center gap-3">
+                  <Phone className="h-4 w-4 text-chicago-sky" />
+                  <a
+                    href="tel:+13125550123"
+                    className="font-medium text-white underline-offset-4 hover:underline"
+                  >
+                    (312) 555-0123
+                  </a>
+                </li>
+              </ul>
+
+              <div className="mt-6 rounded-xl border border-white/10 bg-white/5 p-4 text-xs leading-relaxed text-white/80 backdrop-blur">
+                <strong className="block text-white">References on request.</strong>
+                Past families, two summer-camp counselors I&apos;ve worked with, and
+                a teacher reference are all available.
+              </div>
             </div>
           </aside>
         </div>

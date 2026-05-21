@@ -11,29 +11,36 @@ import {
   Landmark,
   PawPrint,
   Sparkles,
+  Eye,
 } from "lucide-react";
-import { weeks, type Theme } from "@/lib/data";
+import { weeks, type Theme, type EnrichedDestination } from "@/lib/data";
+import { DestinationHoverCard } from "@/components/DestinationHoverCard";
+import { ChicagoStar } from "@/components/ChicagoStar";
 
-const themeStyles: Record<Theme, { label: string; chip: string; ring: string }> = {
+interface AgendaProps {
+  destinationsBySlug: Record<string, EnrichedDestination>;
+}
+
+const themeStyles: Record<Theme, { label: string; chip: string; accent: string }> = {
   animals: {
     label: "Animals",
-    chip: "bg-sand-100 text-sand-700",
-    ring: "ring-sand-300/60",
+    chip: "bg-chicago-red/10 text-chicago-red",
+    accent: "from-chicago-red/20 to-transparent",
   },
   history: {
     label: "History",
-    chip: "bg-cream-100 text-ink-900",
-    ring: "ring-sand-300/60",
+    chip: "bg-chicago-gold/15 text-chicago-gold",
+    accent: "from-chicago-gold/20 to-transparent",
   },
   nature: {
     label: "Nature",
-    chip: "bg-forest-100 text-forest-700",
-    ring: "ring-forest-100",
+    chip: "bg-chicago-blue/10 text-chicago-blue",
+    accent: "from-chicago-blue/20 to-transparent",
   },
   mixed: {
     label: "Mixed",
-    chip: "bg-white text-ink-700 border border-forest-100",
-    ring: "ring-forest-100",
+    chip: "bg-chicago-mist text-chicago-navy",
+    accent: "from-chicago-sky/30 to-transparent",
   },
 };
 
@@ -58,23 +65,24 @@ const travelLabel = {
   "day-trip": "Day trip",
 };
 
-export function Agenda() {
+export function Agenda({ destinationsBySlug }: AgendaProps) {
   const [openWeek, setOpenWeek] = useState<number | null>(1);
 
   return (
-    <section id="agenda" className="border-b border-forest-100 bg-white">
+    <section id="agenda" className="border-b border-chicago-mist bg-white">
       <div className="mx-auto max-w-6xl px-6 py-20">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div className="max-w-2xl">
-            <p className="text-sm font-semibold uppercase tracking-wider text-sand-700">
-              The full plan
-            </p>
-            <h2 className="mt-2 font-display text-3xl font-semibold tracking-tight text-ink-900 md:text-4xl">
+            <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-chicago-red">
+              <ChicagoStar size={12} /> The full plan
+            </div>
+            <h2 className="mt-3 font-display text-4xl font-bold tracking-tight text-chicago-navy md:text-5xl">
               Nine themed weeks, June through July.
             </h2>
-            <p className="mt-4 text-pretty text-ink-700">
-              Click any week to expand. Each day has a destination, a one-sentence
-              plan, the travel mode, and a rain-day backup where it matters.
+            <p className="mt-4 text-pretty text-lg leading-relaxed text-chicago-stone">
+              Click any week to expand. <strong className="text-chicago-deep">Hover any day</strong> to
+              see the destination&apos;s photo, longer description, and a direct link to its
+              official site.
             </p>
           </div>
 
@@ -84,7 +92,7 @@ export function Agenda() {
               return (
                 <span
                   key={t}
-                  className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 ${themeStyles[t].chip}`}
+                  className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 font-medium ${themeStyles[t].chip}`}
                 >
                   <Icon className="h-3 w-3" /> {themeStyles[t].label}
                 </span>
@@ -100,8 +108,13 @@ export function Agenda() {
             return (
               <li
                 key={week.number}
-                className={`overflow-hidden rounded-2xl border border-forest-100 bg-cream-50 ring-1 ring-transparent transition ${themeStyles[week.themeKey].ring} ${isOpen ? "shadow-soft" : ""}`}
+                className={`relative overflow-hidden rounded-2xl border border-chicago-mist bg-white transition ${isOpen ? "shadow-lift" : "shadow-soft hover:border-chicago-blue/30"}`}
               >
+                {/* Theme accent bar on the left */}
+                <div
+                  className={`pointer-events-none absolute inset-y-0 left-0 w-1.5 bg-gradient-to-b ${themeStyles[week.themeKey].accent}`}
+                />
+
                 <button
                   type="button"
                   onClick={() => setOpenWeek(isOpen ? null : week.number)}
@@ -109,65 +122,103 @@ export function Agenda() {
                   aria-controls={`week-${week.number}`}
                   className="flex w-full items-center gap-4 p-5 text-left md:p-6"
                 >
-                  <span className="hidden h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-forest-600 text-cream-50 sm:flex">
+                  <span className="hidden h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-chicago-navy text-white sm:flex">
                     <ThemeIcon className="h-5 w-5" />
                   </span>
                   <div className="min-w-0 flex-1">
                     <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                      <span className="text-xs font-semibold uppercase tracking-wider text-forest-700">
+                      <span className="text-xs font-semibold uppercase tracking-wider text-chicago-red">
                         Week {week.number}
                       </span>
-                      <span className="text-xs text-ink-700">{week.range}</span>
+                      <span className="text-xs font-medium text-chicago-slate">{week.range}</span>
                       <span
-                        className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[11px] font-medium ${themeStyles[week.themeKey].chip}`}
+                        className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[11px] font-semibold ${themeStyles[week.themeKey].chip}`}
                       >
                         {themeStyles[week.themeKey].label}
                       </span>
                     </div>
-                    <h3 className="mt-1 font-display text-xl font-semibold text-ink-900 md:text-2xl">
+                    <h3 className="mt-1 font-display text-2xl font-semibold text-chicago-navy md:text-3xl">
                       {week.theme}
                     </h3>
-                    <p className="mt-1 line-clamp-2 text-sm text-ink-700">{week.pitch}</p>
+                    <p className="mt-1 line-clamp-2 text-sm text-chicago-stone md:text-base">
+                      {week.pitch}
+                    </p>
                   </div>
                   <ChevronDown
-                    className={`h-5 w-5 shrink-0 text-forest-600 transition ${isOpen ? "rotate-180" : ""}`}
+                    className={`h-5 w-5 shrink-0 text-chicago-blue transition ${isOpen ? "rotate-180" : ""}`}
                   />
                 </button>
 
                 {isOpen && (
-                  <div id={`week-${week.number}`} className="border-t border-forest-100 bg-white p-2 md:p-4">
+                  <div
+                    id={`week-${week.number}`}
+                    className="border-t border-chicago-mist bg-chicago-paper p-2 md:p-4"
+                  >
                     <ul className="grid gap-2 md:grid-cols-5">
                       {week.days.map((day) => {
                         const TravelIcon = travelIcon[day.travel ?? "walking"];
-                        return (
-                          <li
-                            key={`${week.number}-${day.day}`}
-                            className="flex flex-col rounded-xl border border-forest-100/60 bg-cream-50/60 p-4"
+                        const dest = day.destSlug ? destinationsBySlug[day.destSlug] : undefined;
+
+                        const card = (
+                          <article
+                            className={`group relative flex h-full flex-col overflow-hidden rounded-xl border border-chicago-mist bg-white p-4 transition ${
+                              dest
+                                ? "cursor-pointer hover:-translate-y-0.5 hover:border-chicago-blue/60 hover:shadow-lift"
+                                : ""
+                            }`}
                           >
                             <div className="flex items-baseline justify-between">
-                              <span className="font-display text-base font-semibold text-forest-700">
+                              <span className="font-display text-base font-bold text-chicago-red">
                                 {day.day}
                               </span>
-                              <span className="text-[11px] font-medium uppercase tracking-wider text-ink-700/70">
+                              <span className="text-[11px] font-semibold uppercase tracking-wider text-chicago-blue">
                                 {day.date}
                               </span>
                             </div>
-                            <h4 className="mt-2 font-medium text-ink-900">{day.title}</h4>
-                            <p className="mt-1 text-xs text-ink-700/80">{day.location}</p>
-                            <p className="mt-3 flex-1 text-sm leading-relaxed text-ink-700">
+                            <h4 className="mt-2 font-display text-base font-semibold leading-tight text-chicago-navy">
+                              {day.title}
+                            </h4>
+                            <p className="mt-1 text-[11px] font-medium uppercase tracking-wider text-chicago-slate">
+                              {day.location}
+                            </p>
+                            <p className="mt-3 flex-1 text-sm leading-relaxed text-chicago-stone">
                               {day.summary}
                             </p>
-                            <div className="mt-3 flex flex-wrap items-center gap-2 border-t border-forest-100/70 pt-3 text-[11px] text-ink-700/80">
-                              <span className="inline-flex items-center gap-1">
+                            <div className="mt-3 flex flex-wrap items-center gap-1.5 border-t border-chicago-mist pt-3 text-[10.5px]">
+                              <span className="inline-flex items-center gap-1 rounded-full bg-chicago-mist px-2 py-0.5 font-medium text-chicago-blue">
                                 <TravelIcon className="h-3 w-3" />
                                 {travelLabel[day.travel ?? "walking"]}
                               </span>
                               {day.rainPlan && (
-                                <span className="inline-flex items-center gap-1" title={day.rainPlan}>
-                                  <CloudRain className="h-3 w-3" /> Rain plan ready
+                                <span
+                                  className="inline-flex items-center gap-1 rounded-full bg-chicago-cream px-2 py-0.5 font-medium text-chicago-stone"
+                                  title={day.rainPlan}
+                                >
+                                  <CloudRain className="h-3 w-3" /> Rain plan
+                                </span>
+                              )}
+                              {dest && (
+                                <span className="ml-auto inline-flex items-center gap-1 text-chicago-blue opacity-0 transition group-hover:opacity-100">
+                                  <Eye className="h-3 w-3" /> Preview
                                 </span>
                               )}
                             </div>
+                          </article>
+                        );
+
+                        return (
+                          <li key={`${week.number}-${day.day}`}>
+                            {dest ? (
+                              <DestinationHoverCard
+                                destination={dest}
+                                travel={day.travel}
+                                rainPlan={day.rainPlan}
+                              >
+                                {card}
+                              </DestinationHoverCard>
+                            ) : (
+                              card
+                            )}
                           </li>
                         );
                       })}
