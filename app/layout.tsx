@@ -16,14 +16,14 @@ const sans = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Christian Garcia | Summer 2026 Sitter & Activity Planner — Lincoln Park",
+  title: "Summer 2026 with Rory & Bellamy · Christian Garcia",
   description:
-    "A thoughtful June–July 2026 babysitting plan for two curious kids who love animals, history, and nature. Designed in Lincoln Park, Chicago, by Christian Garcia.",
+    "A four-week starter plan for the Leahy kids. One theme per week — zoology, planets, nature, marine biology — two outings a week, a steady daily rhythm, and no hour-by-hour scheduling.",
   metadataBase: new URL("https://garcia-2026-summer.vercel.app"),
   openGraph: {
-    title: "Christian Garcia — Summer 2026 Sample Agenda",
+    title: "Summer 2026 with the Leahy kids — Christian Garcia",
     description:
-      "Themed weeks of animals, history, and nature across Lincoln Park and beyond. A flexible plan, ready to customize.",
+      "Four weekly themes, two outings a week, daily piano + reading + outside time. A skim-able starter plan, easy to edit.",
     type: "website",
   },
 };

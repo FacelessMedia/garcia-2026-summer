@@ -1,46 +1,111 @@
-import { dailyRhythm } from "@/lib/data";
-import { Clock } from "lucide-react";
+import {
+  BookOpen,
+  ChefHat,
+  Library,
+  Music2,
+  Puzzle,
+  Sun,
+  Tent,
+  Trees,
+} from "lucide-react";
 import { ChicagoStar } from "@/components/ChicagoStar";
+import { dailyAnchors, weekShape, type DayShape } from "@/lib/data";
+
+const shapeIcon: Record<DayShape, typeof Library> = {
+  library: Library,
+  outing: Tent,
+  recap: Trees,
+  bake: ChefHat,
+};
+
+const anchorIcon = [BookOpen, Music2, Sun, Puzzle];
 
 export function DailyRhythm() {
   return (
-    <section id="daily-rhythm" className="border-b border-chicago-mist lake-bg">
-      <div className="mx-auto max-w-6xl px-6 py-20">
-        <div className="grid gap-12 md:grid-cols-[1fr,1.6fr] md:items-start">
+    <section id="rhythm" className="border-b border-chicago-mist bg-white">
+      <div className="mx-auto max-w-5xl px-6 py-16 md:py-20">
+        <div className="max-w-2xl">
+          <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-chicago-red">
+            <ChicagoStar size={12} /> How a week works
+          </div>
+          <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-chicago-navy md:text-4xl">
+            Two outings, three home days, and a baking Friday.
+          </h2>
+          <p className="mt-3 text-pretty text-base leading-relaxed text-chicago-stone md:text-lg">
+            Same shape every week, different content. No hour-by-hour schedule —
+            just one clear goal per day so the kids know what to expect and
+            we&apos;ve still got room to follow what&apos;s actually working.
+          </p>
+        </div>
+
+        <div className="mt-10 grid gap-8 lg:grid-cols-[1.4fr,1fr]">
+          {/* The week shape */}
           <div>
-            <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-chicago-red">
-              <ChicagoStar size={12} /> The daily rhythm
-            </div>
-            <h2 className="mt-3 font-display text-4xl font-bold tracking-tight text-chicago-navy md:text-5xl">
-              What a typical day looks like.
-            </h2>
-            <p className="mt-4 text-pretty text-lg leading-relaxed text-chicago-stone">
-              Same shape every day, different content. Predictability is what makes
-              kids feel safe; the activities are what make the summer fun. The hours
-              flex around your work schedule.
-            </p>
-            <p className="mt-4 rounded-xl border border-chicago-mist bg-white p-4 text-sm text-chicago-stone shadow-soft">
-              <strong className="text-chicago-deep">Standard hours:</strong> 8:30 AM – 5:00 PM,
-              Monday through Friday. Earlier starts or later evenings on request.
-            </p>
+            <h3 className="font-display text-base font-semibold uppercase tracking-wider text-chicago-blue">
+              The week shape
+            </h3>
+            <ol className="mt-4 space-y-2.5">
+              {weekShape.map((d) => {
+                const Icon = shapeIcon[d.shape];
+                return (
+                  <li
+                    key={d.day}
+                    className="flex items-start gap-4 rounded-2xl border border-chicago-mist bg-chicago-paper p-4 shadow-soft transition hover:border-chicago-blue/40 hover:shadow-lift"
+                  >
+                    <div className="flex w-12 shrink-0 flex-col items-center">
+                      <span className="font-display text-base font-bold text-chicago-red">
+                        {d.day}
+                      </span>
+                      <span className="mt-1.5 flex h-8 w-8 items-center justify-center rounded-lg bg-chicago-navy text-white">
+                        <Icon className="h-4 w-4" />
+                      </span>
+                    </div>
+                    <div className="min-w-0 flex-1 pt-0.5">
+                      <h4 className="font-display text-base font-semibold text-chicago-navy">
+                        {d.label}
+                      </h4>
+                      <p className="mt-1 text-sm leading-relaxed text-chicago-stone">
+                        {d.blurb}
+                      </p>
+                    </div>
+                  </li>
+                );
+              })}
+            </ol>
           </div>
 
-          <ol className="relative space-y-1 border-l-2 border-chicago-mist pl-6">
-            {dailyRhythm.map((slot) => (
-              <li key={slot.time} className="relative pb-6 last:pb-0">
-                <span className="absolute -left-[31px] top-1 flex h-6 w-6 items-center justify-center rounded-full border-2 border-chicago-mist bg-white shadow-soft">
-                  <Clock className="h-3 w-3 text-chicago-red" />
-                </span>
-                <div className="flex flex-wrap items-baseline gap-3">
-                  <span className="font-display text-base font-semibold text-chicago-red">
-                    {slot.time}
-                  </span>
-                  <span className="font-medium text-chicago-navy">{slot.label}</span>
-                </div>
-                <p className="mt-1 text-sm leading-relaxed text-chicago-stone">{slot.note}</p>
-              </li>
-            ))}
-          </ol>
+          {/* Daily anchors */}
+          <aside>
+            <h3 className="font-display text-base font-semibold uppercase tracking-wider text-chicago-blue">
+              Daily anchors
+            </h3>
+            <p className="mt-2 text-sm text-chicago-stone">
+              Things that happen every single day, regardless of theme.
+            </p>
+            <ul className="mt-4 grid gap-3">
+              {dailyAnchors.map((a, i) => {
+                const Icon = anchorIcon[i % anchorIcon.length];
+                return (
+                  <li
+                    key={a.label}
+                    className="flex gap-3 rounded-2xl border border-chicago-mist bg-white p-4 shadow-soft"
+                  >
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-chicago-red/10 text-chicago-red">
+                      <Icon className="h-4 w-4" />
+                    </span>
+                    <div>
+                      <h4 className="font-display text-sm font-semibold text-chicago-navy">
+                        {a.label}
+                      </h4>
+                      <p className="mt-0.5 text-sm leading-relaxed text-chicago-stone">
+                        {a.body}
+                      </p>
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+          </aside>
         </div>
       </div>
     </section>

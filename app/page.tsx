@@ -1,11 +1,9 @@
 import { Agenda } from "@/components/Agenda";
-import { Catalog } from "@/components/Catalog";
 import { Customize } from "@/components/Customize";
 import { DailyRhythm } from "@/components/DailyRhythm";
 import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/Hero";
 import { Nav } from "@/components/Nav";
-import { Pitch } from "@/components/Pitch";
 import { RevealOnScroll } from "@/components/RevealOnScroll";
 import {
   destinations,
@@ -47,16 +45,10 @@ export default async function HomePage() {
       <main>
         <Hero />
         <RevealOnScroll>
-          <Pitch />
-        </RevealOnScroll>
-        <RevealOnScroll>
           <DailyRhythm />
         </RevealOnScroll>
         <RevealOnScroll>
           <Agenda destinationsBySlug={destinationsBySlug} />
-        </RevealOnScroll>
-        <RevealOnScroll>
-          <Catalog destinations={enrichedDestinations} />
         </RevealOnScroll>
         <RevealOnScroll>
           <Customize />

@@ -2,18 +2,16 @@ import Link from "next/link";
 import { ChicagoStar } from "@/components/ChicagoStar";
 
 const links = [
-  { href: "/#why-christian", label: "Why Christian" },
-  { href: "/#daily-rhythm", label: "Daily rhythm" },
-  { href: "/#agenda", label: "Agenda" },
-  { href: "/#catalog", label: "Destinations" },
+  { href: "/#rhythm", label: "How a week works" },
+  { href: "/#weeks", label: "The four weeks" },
   { href: "/games", label: "Games" },
-  { href: "/#customize", label: "Customize" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 export function Nav() {
   return (
     <header className="sticky top-0 z-30 border-b border-chicago-mist bg-white/85 backdrop-blur no-print">
-      <nav className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-3">
+      <nav className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-6 py-3">
         <Link
           href="#top"
           className="flex items-center gap-2 font-display text-base font-semibold text-chicago-navy"

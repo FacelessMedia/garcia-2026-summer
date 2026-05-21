@@ -85,10 +85,10 @@ export default function GamesPage() {
                   next.
                 </p>
                 <Link
-                  href="/#agenda"
+                  href="/#weeks"
                   className="mt-5 inline-flex items-center gap-2 rounded-full bg-chicago-red px-5 py-2.5 text-sm font-semibold text-white shadow-soft transition hover:bg-chicago-crimson"
                 >
-                  See the 9-week agenda
+                  See the four weeks
                 </Link>
               </div>
               <div className="grid grid-cols-2 gap-3">
