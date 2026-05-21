@@ -34,19 +34,19 @@ export function Customize() {
                 <li className="flex items-center gap-3">
                   <Mail className="h-4 w-4 text-chicago-sky" />
                   <a
-                    href="mailto:christian@example.com"
+                    href="mailto:Christianamadeusgarcia@gmail.com"
                     className="font-medium text-white underline-offset-4 hover:underline"
                   >
-                    christian@example.com
+                    Christianamadeusgarcia@gmail.com
                   </a>
                 </li>
                 <li className="flex items-center gap-3">
                   <Phone className="h-4 w-4 text-chicago-sky" />
                   <a
-                    href="tel:+13125550123"
+                    href="tel:+17733975110"
                     className="font-medium text-white underline-offset-4 hover:underline"
                   >
-                    (312) 555-0123
+                    (773) 397-5110
                   </a>
                 </li>
               </ul>

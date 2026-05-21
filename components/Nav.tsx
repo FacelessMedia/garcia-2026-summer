@@ -4,6 +4,7 @@ import { ChicagoStar } from "@/components/ChicagoStar";
 const links = [
   { href: "/#rhythm", label: "How a week works" },
   { href: "/#weeks", label: "The four weeks" },
+  { href: "/#about", label: "About" },
   { href: "/games", label: "Games" },
   { href: "/#contact", label: "Contact" },
 ];

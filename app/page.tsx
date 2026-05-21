@@ -1,3 +1,4 @@
+import { About } from "@/components/About";
 import { Agenda } from "@/components/Agenda";
 import { Customize } from "@/components/Customize";
 import { DailyRhythm } from "@/components/DailyRhythm";
@@ -49,6 +50,9 @@ export default async function HomePage() {
         </RevealOnScroll>
         <RevealOnScroll>
           <Agenda destinationsBySlug={destinationsBySlug} />
+        </RevealOnScroll>
+        <RevealOnScroll>
+          <About />
         </RevealOnScroll>
         <RevealOnScroll>
           <Customize />
