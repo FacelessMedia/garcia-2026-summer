@@ -73,9 +73,165 @@ body {
   to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 
+/* ============================================================
+   Weather animations — drifting clouds + sun + flag-star twinkle
+   ============================================================ */
+
+/* Drifting clouds: three lanes, varied speeds & sizes */
+@keyframes cloudDrift {
+  from { transform: translate3d(-25vw, 0, 0); }
+  to   { transform: translate3d(125vw, 0, 0); }
+}
+.cloud {
+  position: absolute;
+  pointer-events: none;
+  color: #ffffff;
+  filter: drop-shadow(0 6px 12px rgba(15, 22, 32, 0.06));
+  will-change: transform;
+}
+.cloud-1 { top: 8%;  animation: cloudDrift 110s linear infinite;       opacity: 0.85; }
+.cloud-2 { top: 22%; animation: cloudDrift 165s linear infinite -40s;  opacity: 0.65; }
+.cloud-3 { top: 14%; animation: cloudDrift 220s linear infinite -90s;  opacity: 0.5;  }
+
+/* Soft pulsing sun glow */
+@keyframes sunPulse {
+  0%, 100% { opacity: 0.75; transform: scale(1); }
+  50%      { opacity: 0.9;  transform: scale(1.04); }
+}
+.sun-glow {
+  animation: sunPulse 7s ease-in-out infinite;
+  filter: blur(28px);
+}
+
+/* Star twinkle on flag stars */
+@keyframes starTwinkle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.55; transform: scale(0.95); }
+}
+.twinkle-1 { animation: starTwinkle 4.0s ease-in-out infinite; }
+.twinkle-2 { animation: starTwinkle 4.6s ease-in-out infinite -1.0s; }
+.twinkle-3 { animation: starTwinkle 5.2s ease-in-out infinite -2.0s; }
+.twinkle-4 { animation: starTwinkle 4.4s ease-in-out infinite -3.0s; }
+
+/* Drifting bird silhouette across the hero */
+@keyframes birdFly {
+  0%   { transform: translate3d(-10vw, 0, 0)    scale(1); }
+  50%  { transform: translate3d(50vw, -18px, 0) scale(0.9); }
+  100% { transform: translate3d(115vw, 0, 0)    scale(1); }
+}
+.bird {
+  position: absolute;
+  pointer-events: none;
+  animation: birdFly 38s linear infinite;
+}
+
+/* Section reveal-on-scroll */
+.reveal-section {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 600ms cubic-bezier(0.2, 0.7, 0.2, 1),
+              transform 600ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.reveal-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================================
+   Game-specific animations
+   ============================================================ */
+
+/* Memory match card flip */
+.flip-card {
+  perspective: 800px;
+}
+.flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 480ms cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+.flip-card.is-flipped .flip-inner {
+  transform: rotateY(180deg);
+}
+.flip-face {
+  position: absolute;
+  inset: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.flip-face-back {
+  transform: rotateY(180deg);
+}
+
+/* Trivia card slide-in */
+@keyframes triviaIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.trivia-enter { animation: triviaIn 320ms cubic-bezier(0.2, 0.7, 0.2, 1); }
+
+/* Confetti for correct answers / wins */
+@keyframes confettiFall {
+  0%   { transform: translate3d(0, -10vh, 0) rotate(0deg); opacity: 1; }
+  100% { transform: translate3d(0, 110vh, 0) rotate(720deg); opacity: 0; }
+}
+.confetti-piece {
+  position: fixed;
+  top: 0;
+  width: 10px;
+  height: 14px;
+  border-radius: 2px;
+  pointer-events: none;
+  animation: confettiFall 1700ms cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+  z-index: 60;
+}
+
+/* Tic-tac-toe move pop-in */
+@keyframes ttPop {
+  0%   { transform: scale(0.5); opacity: 0; }
+  60%  { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(1); }
+}
+.tt-pop { animation: ttPop 260ms cubic-bezier(0.34, 1.56, 0.64, 1); }
+
+/* Win-line draw */
+@keyframes winLineGrow {
+  from { stroke-dashoffset: 200; }
+  to   { stroke-dashoffset: 0; }
+}
+.win-line {
+  stroke-dasharray: 200;
+  animation: winLineGrow 520ms ease-out forwards;
+}
+
+/* Pulse for "your turn" indicator */
+@keyframes softPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(216, 35, 42, 0.5); }
+  50%      { box-shadow: 0 0 0 10px rgba(216, 35, 42, 0); }
+}
+.pulse-red { animation: softPulse 2s ease-out infinite; }
+
+/* Respect users who don't want motion */
+@media (prefers-reduced-motion: reduce) {
+  .cloud, .sun-glow, .bird,
+  .twinkle-1, .twinkle-2, .twinkle-3, .twinkle-4,
+  .pulse-red, .confetti-piece, .reveal-section, .trivia-enter, .tt-pop,
+  .flip-inner {
+    animation: none !important;
+    transition: none !important;
+  }
+  .reveal-section { opacity: 1; transform: none; }
+}
+
 /* Print-friendly: parents may want to print the agenda */
 @media print {
   .no-print { display: none !important; }
   body { background: white; }
   section { break-inside: avoid; }
+  .cloud, .bird, .sun-glow { display: none !important; }
 }

@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/Hero";
 import { Nav } from "@/components/Nav";
 import { Pitch } from "@/components/Pitch";
+import { RevealOnScroll } from "@/components/RevealOnScroll";
 import {
   destinations,
   type EnrichedDestination,
@@ -45,11 +46,21 @@ export default async function HomePage() {
       <Nav />
       <main>
         <Hero />
-        <Pitch />
-        <DailyRhythm />
-        <Agenda destinationsBySlug={destinationsBySlug} />
-        <Catalog destinations={enrichedDestinations} />
-        <Customize />
+        <RevealOnScroll>
+          <Pitch />
+        </RevealOnScroll>
+        <RevealOnScroll>
+          <DailyRhythm />
+        </RevealOnScroll>
+        <RevealOnScroll>
+          <Agenda destinationsBySlug={destinationsBySlug} />
+        </RevealOnScroll>
+        <RevealOnScroll>
+          <Catalog destinations={enrichedDestinations} />
+        </RevealOnScroll>
+        <RevealOnScroll>
+          <Customize />
+        </RevealOnScroll>
       </main>
       <Footer />
     </>

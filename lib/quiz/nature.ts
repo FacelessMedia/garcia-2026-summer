@@ -1,0 +1,126 @@
+import type { Question } from "./types";
+
+/**
+ * 100 nature & science trivia questions — covers plants, weather,
+ * Lake Michigan + Indiana Dunes, the human body, space (Adler tie-in),
+ * and the easy science the kids will see at MSI and Cantigny.
+ */
+export const natureQuestions: Question[] = [
+  // ── Plants & trees (1–14)
+  { q: "What gas do plants release as part of photosynthesis that we breathe?", o: ["Carbon dioxide", "Hydrogen", "Oxygen", "Nitrogen"], a: 2, f: "Photosynthesis turns sunlight + water + CO₂ into food for the plant — and oxygen as a bonus." },
+  { q: "What part of the plant absorbs water and nutrients from the soil?", o: ["Leaves", "Roots", "Flowers", "Stem"], a: 1, f: "Roots also anchor the plant in the ground." },
+  { q: "What part of a plant usually grows toward the sunlight?", o: ["Roots", "Stems and leaves", "Flowers underground", "The seed"], a: 1, f: "This is called phototropism — plants 'reach' for sunlight." },
+  { q: "What's the green substance in leaves that captures sunlight?", o: ["Chlorophyll", "Calcium", "Cellulose", "Carotene"], a: 0, f: "Chlorophyll absorbs red and blue light, reflecting green — that's why plants look green." },
+  { q: "Why do leaves change color in autumn?", o: ["They get cold", "Chlorophyll breaks down and other colors show through", "They get repainted", "Birds peck at them"], a: 1, f: "The yellow and orange were always there — they just couldn't be seen behind the green." },
+  { q: "Which Illinois state tree is famous for its strong wood and acorns?", o: ["Maple", "White oak", "Pine", "Birch"], a: 1, f: "Illinois adopted the white oak as its state tree in 1973." },
+  { q: "What is the Morton Arboretum?", o: ["An aquarium", "A giant tree museum near Chicago", "A planetarium", "A zoo"], a: 1, f: "Morton Arboretum has over 222,000 trees on 1,700 acres in Lisle, IL." },
+  { q: "Which two giant Chicago conservatories grow tropical plants under glass?", o: ["Lincoln Park and Garfield Park", "Soldier and Wrigley", "Field and Adler", "Navy and Loop"], a: 0, f: "Both have free admission and giant palm rooms." },
+  { q: "What does the Garfield Park Conservatory's Children's Garden teach kids?", o: ["How to drive", "How seeds and plants grow", "How to fish", "How to fly"], a: 1, f: "Kids climb up the inside of a giant model plant root." },
+  { q: "Which is NOT a part of a flower?", o: ["Petal", "Pollen", "Stem cell", "Stamen"], a: 2, f: "Flowers have petals, sepals, stamens (male) and a pistil (female). 'Stem cells' are an animal-biology thing." },
+  { q: "How are most fruits and vegetables 'pollinated'?", o: ["By bees and other insects", "By rain", "By the wind only", "By trucks"], a: 0, f: "Bees alone pollinate about a third of the food we eat." },
+  { q: "What part of the dandelion floats on the wind to spread seeds?", o: ["The roots", "The fluffy white seed parachute", "The leaves", "The yellow petals"], a: 1, f: "Each white tuft is one seed with a built-in parachute." },
+  { q: "What is a deciduous tree?", o: ["A tree that stays green all year", "A tree that drops its leaves in fall", "A tree that grows in oceans", "A tree that glows"], a: 1, f: "Maples and oaks in Chicago are deciduous." },
+  { q: "What is an evergreen tree?", o: ["One that loses its leaves", "One that stays green all year", "One that flowers in winter", "One that lives in caves"], a: 1, f: "Pines, spruces, and firs are evergreens — their needles stay green year-round." },
+
+  // ── Weather, seasons, climate (15–26)
+  { q: "What causes the seasons on Earth?", o: ["Distance from the Sun", "The tilt of Earth's axis", "How fast we orbit", "The Moon's position"], a: 1, f: "Earth tilts about 23.5°, so different parts get more or less direct sunlight as we orbit." },
+  { q: "What weather event has spinning winds and a funnel that touches the ground?", o: ["Hurricane", "Tornado", "Blizzard", "Earthquake"], a: 1, f: "Illinois is in 'Tornado Alley North,' so we have tornado drills every year." },
+  { q: "What's the name for frozen rain that falls in tiny ice balls?", o: ["Sleet/hail", "Drizzle", "Snow", "Mist"], a: 0, f: "Hailstones can sometimes be as big as baseballs in really strong storms." },
+  { q: "What does a rainbow need to form?", o: ["Just rain", "Rain + sunlight at the right angle", "Snow", "A volcano"], a: 1, f: "Sunlight bouncing inside raindrops splits white light into the colors." },
+  { q: "Which wind blows off Lake Michigan and cools Chicago in summer?", o: ["The lake breeze", "The desert wind", "The sky breeze", "The trade winds"], a: 0, f: "The lake stays cool, so air over the lake stays cool too — and breezes inland on hot days." },
+  { q: "What is the water cycle?", o: ["A bicycle that floats", "How water moves between oceans, sky, and land", "A weather forecast", "A soccer move"], a: 1, f: "Evaporation → condensation → precipitation → collection — over and over." },
+  { q: "What turns water into vapor in the sky?", o: ["Heat from the Sun", "Wind only", "Trees", "Rocks"], a: 0, f: "The Sun heats water on the surface, turning it into water vapor that rises." },
+  { q: "What's the difference between weather and climate?", o: ["They're the same thing", "Weather is right now; climate is the long-term pattern", "Weather is colder", "Climate is short-term"], a: 1, f: "Weather changes hour to hour. Climate is the average over decades." },
+  { q: "About how much of Chicago's water comes from Lake Michigan?", o: ["None", "Half", "Most of it", "Only winter water"], a: 2, f: "Lake Michigan provides nearly all the city's drinking water." },
+  { q: "What is Lake Michigan's biggest threat that scientists worry about?", o: ["Volcanoes", "Pollution and invasive species", "Earthquakes", "Hurricanes"], a: 1, f: "Invasive species like zebra mussels have changed the lake's ecosystem." },
+  { q: "What's a meteorologist?", o: ["A scientist who studies meteors", "A scientist who studies weather", "A musician", "A pilot"], a: 1, f: "Meteorologists use radar and satellites to forecast weather." },
+  { q: "What invisible gas in our air helps trap heat from the Sun?", o: ["Oxygen", "Carbon dioxide", "Hydrogen", "Helium"], a: 1, f: "CO₂ acts like a blanket — too much, and Earth gets warmer (the greenhouse effect)." },
+
+  // ── The body & basic biology (27–38)
+  { q: "How many bones do adults have in their bodies?", o: ["About 100", "About 206", "About 500", "About 1,000"], a: 1, f: "Babies are born with about 270 bones, but many fuse together as we grow." },
+  { q: "Which body part pumps blood?", o: ["Brain", "Heart", "Lungs", "Liver"], a: 1, f: "Your heart beats around 100,000 times a day." },
+  { q: "Which body part takes in oxygen and gives off carbon dioxide?", o: ["Stomach", "Liver", "Lungs", "Heart"], a: 2, f: "When you breathe in, your lungs pull oxygen out of the air." },
+  { q: "Which sense organ helps you balance?", o: ["Eyes only", "Inner ear", "Nose", "Skin"], a: 1, f: "Tiny fluid-filled tubes in your inner ear sense which way is up." },
+  { q: "How many teeth does an adult human usually have?", o: ["20", "32", "40", "12"], a: 1, f: "Adults have 32 teeth (including 4 wisdom teeth)." },
+  { q: "Which part of the body controls thinking and movement?", o: ["Stomach", "Brain", "Liver", "Heart"], a: 1, f: "Your brain has about 86 billion nerve cells." },
+  { q: "Which is the largest organ in the human body?", o: ["Brain", "Liver", "Skin", "Lungs"], a: 2, f: "Your skin can weigh about 8 pounds and cover 22 square feet." },
+  { q: "What carries oxygen around your body in your blood?", o: ["White blood cells", "Red blood cells", "Platelets", "Plasma only"], a: 1, f: "Red blood cells contain hemoglobin, which grabs onto oxygen." },
+  { q: "What does your stomach do?", o: ["Pumps blood", "Breaks down food", "Cleans the air", "Helps you balance"], a: 1, f: "Stomach acid is so strong it could burn your skin — but a slimy lining keeps your stomach safe." },
+  { q: "How many chambers does the human heart have?", o: ["1", "2", "3", "4"], a: 3, f: "Two atria on top, two ventricles on the bottom." },
+  { q: "Which body part is sometimes called the body's 'computer'?", o: ["Heart", "Brain", "Stomach", "Skin"], a: 1, f: "Your brain takes in info, decides what to do, and sends signals to muscles." },
+  { q: "What do your kidneys mainly do?", o: ["Pump blood", "Filter waste from blood", "Help you breathe", "Send messages"], a: 1, f: "Kidneys clean your blood and turn waste into pee." },
+
+  // ── Space & astronomy (Adler / MSI tie-in) (39–52)
+  { q: "What is the Adler Planetarium famous for?", o: ["Animals", "Showing the night sky inside a dome", "Boats", "Roller coasters"], a: 1, f: "Adler is the oldest planetarium in the Western Hemisphere — opened 1930." },
+  { q: "How many planets are in our Solar System?", o: ["6", "7", "8", "9"], a: 2, f: "Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune — 8 since Pluto was reclassified in 2006." },
+  { q: "What is the closest planet to the Sun?", o: ["Venus", "Earth", "Mercury", "Mars"], a: 2, f: "Mercury whips around the Sun in just 88 Earth days." },
+  { q: "What is the largest planet in our Solar System?", o: ["Earth", "Mars", "Jupiter", "Saturn"], a: 2, f: "Jupiter is so big you could fit over 1,300 Earths inside it." },
+  { q: "Which planet is famous for its bright rings?", o: ["Jupiter", "Saturn", "Mars", "Earth"], a: 1, f: "Saturn's rings are made of ice and rock, and they're only about 30 feet thick on average." },
+  { q: "What is the name of Earth's natural satellite?", o: ["Sun", "Moon", "Mars", "Venus"], a: 1, f: "The Moon is about 238,855 miles from Earth on average." },
+  { q: "What is a 'shooting star' really?", o: ["A real star moving", "A meteor burning up in the atmosphere", "A satellite", "A plane"], a: 1, f: "Most meteors are dust-sized but burn so brightly we can see them from Earth." },
+  { q: "What galaxy do we live in?", o: ["Andromeda", "The Milky Way", "Triangulum", "Whirlpool"], a: 1, f: "Our Milky Way galaxy has about 100–400 billion stars." },
+  { q: "What is the Sun?", o: ["A planet", "A moon", "A star", "A meteor"], a: 2, f: "The Sun is just one of around 100 billion stars in the Milky Way." },
+  { q: "About how long does it take Earth to orbit the Sun?", o: ["1 day", "1 week", "1 month", "1 year"], a: 3, f: "365.25 days — that's why we add a leap day every 4 years." },
+  { q: "How long does Earth take to spin once on its axis?", o: ["1 hour", "1 day (24 hours)", "1 week", "1 month"], a: 1, f: "That spin gives us day and night." },
+  { q: "Who was the first human to step on the Moon?", o: ["Buzz Aldrin", "Neil Armstrong", "John Glenn", "Yuri Gagarin"], a: 1, f: "Neil Armstrong stepped onto the Moon on July 20, 1969." },
+  { q: "What's a black hole?", o: ["A really dark cloud", "A region of space with gravity so strong even light can't escape", "An empty box", "A type of comet"], a: 1, f: "Black holes form when massive stars collapse." },
+  { q: "What's the difference between a star and a planet?", o: ["No difference", "Stars make their own light; planets reflect light", "Stars are colder", "Planets are bigger"], a: 1, f: "The Sun makes light. Earth, Mars, and the Moon just reflect sunlight." },
+
+  // ── Earth, rocks, oceans (53–62)
+  { q: "What is the layer of Earth we live on?", o: ["The core", "The mantle", "The crust", "The mesosphere"], a: 2, f: "The crust is just a few miles thick on average — like the skin of an apple." },
+  { q: "What's the hot, melted rock under Earth's surface called?", o: ["Magma", "Lava", "Bedrock", "Granite"], a: 0, f: "Once magma reaches the surface (through a volcano), we call it lava." },
+  { q: "What forms when two giant pieces of Earth's crust slip past each other?", o: ["A rainbow", "An earthquake", "A snowstorm", "A flood"], a: 1, f: "These big pieces are called tectonic plates." },
+  { q: "What kind of rock forms when lava cools?", o: ["Sedimentary", "Igneous", "Metamorphic", "Sandstone"], a: 1, f: "Granite and basalt are common igneous rocks." },
+  { q: "What kind of rock is made from layers of mud, sand, or shells?", o: ["Igneous", "Sedimentary", "Metamorphic", "Volcanic"], a: 1, f: "Sandstone, limestone, and shale are sedimentary." },
+  { q: "How many oceans does Earth have?", o: ["3", "4", "5", "7"], a: 2, f: "Pacific, Atlantic, Indian, Arctic, and Southern (Antarctic)." },
+  { q: "About what percent of Earth's surface is water?", o: ["10%", "30%", "50%", "About 71%"], a: 3, f: "Most of that is salty ocean water." },
+  { q: "What is Indiana Dunes National Park famous for?", o: ["Mountain peaks", "Sand dunes and beaches on Lake Michigan", "Volcanoes", "Glaciers"], a: 1, f: "The Dunes Succession Trail climbs over giant sand dunes overlooking the lake." },
+  { q: "What's a glacier?", o: ["A rocky desert", "A slow-moving giant body of ice", "An underground river", "A waterfall"], a: 1, f: "Glaciers shaped Lake Michigan and the rolling Illinois prairie thousands of years ago." },
+  { q: "Lake Michigan is one of how many Great Lakes?", o: ["3", "4", "5", "7"], a: 2, f: "HOMES: Huron, Ontario, Michigan, Erie, Superior." },
+
+  // ── Simple physics (63–72)
+  { q: "What force pulls objects toward the Earth?", o: ["Magnetism", "Gravity", "Electricity", "Friction"], a: 1, f: "Sir Isaac Newton famously studied gravity after watching an apple fall." },
+  { q: "What slows things down when they rub together?", o: ["Magnetism", "Friction", "Gravity", "Electricity"], a: 1, f: "Friction also makes your hands warm when you rub them." },
+  { q: "Which travels faster, light or sound?", o: ["Sound", "Light", "They're the same", "Neither moves"], a: 1, f: "That's why you see lightning before you hear thunder." },
+  { q: "What do magnets attract?", o: ["Plastic", "Wood", "Iron and some other metals", "Glass"], a: 2, f: "Magnets pull on iron, nickel, and cobalt." },
+  { q: "What are the three states of water?", o: ["Solid, liquid, gas", "Hot, warm, cold", "Sweet, salty, sour", "Big, small, medium"], a: 0, f: "Ice, water, and steam (water vapor)." },
+  { q: "Which of these conducts electricity?", o: ["Plastic spoon", "Wooden stick", "Metal wire", "Rubber boot"], a: 2, f: "Metals like copper conduct electricity well." },
+  { q: "What spins inside a wind turbine to make electricity?", o: ["A drum", "A generator", "A magnet only", "Solar cells"], a: 1, f: "Wind spins the blades, which spin a generator, which makes electricity." },
+  { q: "Where does the energy in solar panels come from?", o: ["The wind", "The Sun", "Nuclear plants", "Lightning"], a: 1, f: "Solar panels turn sunlight into electricity using photovoltaic cells." },
+  { q: "What's a simple machine that helps lift heavy things, like a seesaw?", o: ["Wheel", "Lever", "Pulley", "Inclined plane"], a: 1, f: "A lever is a beam balanced on a pivot called a fulcrum." },
+  { q: "What's a simple machine that uses a rope and a wheel to lift things?", o: ["Pulley", "Lever", "Wedge", "Screw"], a: 0, f: "Pulleys make heavy things feel lighter to lift." },
+
+  // ── Inventions, tech, MSI tie-in (73–82)
+  { q: "Which Chicago museum has a real submarine you can climb through?", o: ["Field Museum", "Museum of Science & Industry (U-505)", "Adler Planetarium", "Shedd Aquarium"], a: 1, f: "MSI's U-505 is a captured WWII German submarine." },
+  { q: "Which scientist is famous for E = mc² and the theory of relativity?", o: ["Isaac Newton", "Albert Einstein", "Marie Curie", "Galileo"], a: 1, f: "Einstein revolutionized physics in the early 1900s." },
+  { q: "Which scientist invented the telephone?", o: ["Thomas Edison", "Alexander Graham Bell", "Nikola Tesla", "Henry Ford"], a: 1, f: "Bell got the telephone patent in 1876." },
+  { q: "Which scientist invented the light bulb?", o: ["Thomas Edison", "Marie Curie", "Galileo", "Isaac Newton"], a: 0, f: "Edison's first practical bulb glowed in 1879." },
+  { q: "Which Polish-French scientist won two Nobel Prizes for her work on radioactivity?", o: ["Marie Curie", "Florence Nightingale", "Rosalind Franklin", "Ada Lovelace"], a: 0, f: "Curie discovered the elements polonium and radium." },
+  { q: "Which Chicagoan helped invent the atomic age in a squash court at the University of Chicago?", o: ["Albert Einstein", "Enrico Fermi", "Marie Curie", "Stephen Hawking"], a: 1, f: "Fermi led the first controlled nuclear chain reaction in 1942 — there's a Henry Moore sculpture marking the spot." },
+  { q: "What does AI stand for?", o: ["American Internet", "Animal Intelligence", "Artificial Intelligence", "Active Internet"], a: 2, f: "AI is computer programs that learn from data." },
+  { q: "What's the World Wide Web?", o: ["A spider's home", "A way to share information across the Internet", "A type of TV", "A satellite system"], a: 1, f: "Tim Berners-Lee invented the Web in 1989 at CERN." },
+  { q: "What's a 'circuit'?", o: ["A music tune", "A path electricity flows through", "A type of cookie", "A type of clock"], a: 1, f: "Circuits power everything from flashlights to phones." },
+  { q: "Which device used to be a giant room-sized machine but now fits in your pocket?", o: ["Refrigerator", "Computer", "TV", "Bike"], a: 1, f: "Early computers in the 1940s filled whole rooms." },
+
+  // ── Conservation, ecology, lakefront (83–92)
+  { q: "What does it mean to 'recycle'?", o: ["Throw something away", "Use something once", "Make new things from used stuff", "Bury trash"], a: 2, f: "Recycling turns paper, plastic, and metal into new products instead of trash." },
+  { q: "Which 'R' comes BEFORE recycle in the famous list?", o: ["Reduce, Reuse", "Repaint", "Repair", "Restart"], a: 0, f: "Reduce, reuse, recycle — in that order, because reducing is best." },
+  { q: "What do bees, butterflies, and hummingbirds all do for plants?", o: ["Eat them", "Pollinate them", "Burn them", "Bury them"], a: 1, f: "They move pollen from flower to flower so plants can make seeds." },
+  { q: "Why is keeping Lake Michigan clean so important to Chicago?", o: ["For boating only", "It's the city's main drinking-water source", "It makes electricity", "It's just for fish"], a: 1, f: "Almost all of Chicago's drinking water comes from Lake Michigan." },
+  { q: "Which Chicago bird sanctuary is famous for migrating birds?", o: ["Soldier Field", "Montrose Point Bird Sanctuary", "Wrigley Field", "Loop Park"], a: 1, f: "The 'Magic Hedge' at Montrose Point catches tired birds during spring and fall migration." },
+  { q: "What do scientists call a community of plants and animals that depend on each other?", o: ["A neighborhood", "An ecosystem", "A garden", "A herd"], a: 1, f: "A pond, a forest, and a coral reef are all ecosystems." },
+  { q: "What's an 'invasive species'?", o: ["A super-fast animal", "A non-native species that takes over an ecosystem", "Any zoo animal", "A new pet"], a: 1, f: "Zebra mussels and emerald ash borer beetles are big problems for the Great Lakes region." },
+  { q: "Why are wetlands like the Lily Pool important?", o: ["They make great pools", "They filter water and shelter wildlife", "They flood houses", "They are useless"], a: 1, f: "Wetlands act like nature's sponges and are home to frogs, birds, and dragonflies." },
+  { q: "What's the best way to help local wildlife in your yard?", o: ["Plant native plants and avoid pesticides", "Cover the yard in concrete", "Use lots of weed killer", "Cut down all the trees"], a: 0, f: "Native plants give birds and butterflies the food they evolved with." },
+  { q: "What do compost piles do?", o: ["Make trash smell good", "Turn food and yard waste into soil", "Burn trash", "Make plastic"], a: 1, f: "Compost feeds gardens and keeps food scraps out of landfills." },
+
+  // ── Fun general science (93–100)
+  { q: "What's the chemical formula for water?", o: ["O₂", "CO₂", "H₂O", "NaCl"], a: 2, f: "Two hydrogen atoms + one oxygen atom = a water molecule." },
+  { q: "What is the smallest unit of matter?", o: ["Cell", "Atom", "Molecule", "Crystal"], a: 1, f: "Atoms are made of even tinier protons, neutrons, and electrons." },
+  { q: "What scale measures how acidic or basic something is?", o: ["pH scale", "Richter scale", "Fahrenheit scale", "Decibel scale"], a: 0, f: "0 = very acidic, 7 = neutral (water), 14 = very basic." },
+  { q: "What scale measures earthquakes?", o: ["pH", "Richter (and others)", "Fahrenheit", "Decibel"], a: 1, f: "Each step up the Richter scale is 10x the shaking." },
+  { q: "How many primary colors of light are there?", o: ["2", "3", "4", "7"], a: 1, f: "Red, green, and blue light — mix all three and you get white." },
+  { q: "What's the loudest natural sound on Earth?", o: ["A volcano", "A blue whale", "A jet engine", "Thunder"], a: 1, f: "Blue whale calls can be over 180 decibels — louder than a jet engine." },
+  { q: "What's the freezing point of water in Fahrenheit?", o: ["0°", "32°", "100°", "212°"], a: 1, f: "Or 0°C — same temperature, different scale." },
+  { q: "What's the boiling point of water in Fahrenheit?", o: ["32°", "100°", "180°", "212°"], a: 3, f: "Or 100°C." },
+];

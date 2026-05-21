@@ -2,11 +2,12 @@ import Link from "next/link";
 import { ChicagoStar } from "@/components/ChicagoStar";
 
 const links = [
-  { href: "#why-christian", label: "Why Christian" },
-  { href: "#daily-rhythm", label: "Daily rhythm" },
-  { href: "#agenda", label: "Agenda" },
-  { href: "#catalog", label: "Destinations" },
-  { href: "#customize", label: "Customize" },
+  { href: "/#why-christian", label: "Why Christian" },
+  { href: "/#daily-rhythm", label: "Daily rhythm" },
+  { href: "/#agenda", label: "Agenda" },
+  { href: "/#catalog", label: "Destinations" },
+  { href: "/games", label: "Games" },
+  { href: "/#customize", label: "Customize" },
 ];
 
 export function Nav() {

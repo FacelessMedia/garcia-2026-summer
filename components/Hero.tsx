@@ -1,6 +1,8 @@
-import { ArrowRight, CalendarDays, MapPin } from "lucide-react";
+import { ArrowRight, CalendarDays, Gamepad2, MapPin } from "lucide-react";
+import Link from "next/link";
 import { ChicagoStar } from "@/components/ChicagoStar";
 import { Skyline } from "@/components/Skyline";
+import { WeatherFX } from "@/components/WeatherFX";
 
 export function Hero() {
   return (
@@ -8,6 +10,11 @@ export function Hero() {
       {/* Sky gradient backdrop */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-chicago-sky/60 via-chicago-mist/40 to-chicago-paper" />
       <div className="absolute inset-0 -z-10 star-bg opacity-70" />
+
+      {/* Animated clouds + sun + bird */}
+      <div className="absolute inset-0 -z-[5]">
+        <WeatherFX />
+      </div>
 
       {/* Chicago flag stripe along the top edge */}
       <div className="absolute inset-x-0 top-0 -z-10 h-1.5 bg-chicago-red" />
@@ -30,10 +37,10 @@ export function Hero() {
 
         {/* Four Chicago stars (matching the city flag) — decorative row */}
         <div className="mt-10 flex items-center gap-3 text-chicago-red">
-          <ChicagoStar size={20} />
-          <ChicagoStar size={20} />
-          <ChicagoStar size={20} />
-          <ChicagoStar size={20} />
+          <ChicagoStar size={20} className="twinkle-1" />
+          <ChicagoStar size={20} className="twinkle-2" />
+          <ChicagoStar size={20} className="twinkle-3" />
+          <ChicagoStar size={20} className="twinkle-4" />
         </div>
 
         <h1 className="mt-5 max-w-4xl text-balance font-display text-5xl font-bold leading-[1.05] tracking-tight text-chicago-navy md:text-7xl">
@@ -66,6 +73,13 @@ export function Hero() {
           >
             Browse 21 destinations
           </a>
+          <Link
+            href="/games"
+            className="inline-flex items-center gap-2 rounded-full bg-chicago-navy px-6 py-3 text-sm font-semibold text-white shadow-soft transition hover:bg-chicago-deep"
+          >
+            <Gamepad2 className="h-4 w-4" />
+            Try a kid-tested game
+          </Link>
         </div>
 
         <dl className="mt-14 grid grid-cols-2 gap-x-6 gap-y-6 border-t border-chicago-mist pt-8 md:grid-cols-4">
